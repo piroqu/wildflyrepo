@@ -41,6 +41,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import testt.test.data.MemberRepository;
+import testt.test.hibernate.PokemonEntity;
+import testt.test.hibernate.test.Pokemon;
 import testt.test.model.Member;
 import testt.test.model.Student;
 import testt.test.service.MemberRegistration;
@@ -68,8 +70,8 @@ public class MemberResourceRESTService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Student> listAllMembers() {
-        return repository.testoweWyszukiwanie();
+    public Pokemon listAllMembers() {
+        return repository.testoweWyszukiwanie3();
     }
 
     @GET

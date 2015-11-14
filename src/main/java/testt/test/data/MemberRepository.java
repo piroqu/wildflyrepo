@@ -24,6 +24,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+import testt.test.hibernate.PokemonEntity;
+import testt.test.hibernate.test.Pokemon;
+import testt.test.hibernate.test.PokemonHome;
 import testt.test.model.Member;
 import testt.test.model.Student;
 
@@ -68,5 +71,21 @@ public class MemberRepository {
         // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
         criteria.select(student);
         return em.createQuery(criteria).getResultList();
+    }
+
+    public List<PokemonEntity> testoweWyszukiwanie2() {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<PokemonEntity> criteria = cb.createQuery(PokemonEntity.class);
+        Root<PokemonEntity> PokemonEntity = criteria.from(PokemonEntity.class);
+        // Swap criteria statements if you would like to try out type-safe criteria queries, a new
+        // feature in JPA 2.0
+        // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
+        criteria.select(PokemonEntity);
+        return em.createQuery(criteria).getResultList();
+    }
+
+    public Pokemon testoweWyszukiwanie3() {
+        PokemonHome pkhome= new PokemonHome();
+        return  pkhome.findById(1);
     }
 }
