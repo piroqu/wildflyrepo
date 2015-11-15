@@ -22,13 +22,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 import testt.test.hibernate.PokemonEntity;
 import testt.test.hibernate.test.Pokemon;
 import testt.test.hibernate.test.PokemonHome;
 import testt.test.model.Member;
-import testt.test.model.Student;
 
 @ApplicationScoped
 public class MemberRepository {
@@ -62,7 +62,7 @@ public class MemberRepository {
         return em.createQuery(criteria).getResultList();
     }
 
-    public List<Student> testoweWyszukiwanie() {
+  /*  public List<Student> testoweWyszukiwanie() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Student> criteria = cb.createQuery(Student.class);
         Root<Student> student = criteria.from(Student.class);
@@ -71,7 +71,7 @@ public class MemberRepository {
         // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
         criteria.select(student);
         return em.createQuery(criteria).getResultList();
-    }
+    }*/
 
     public List<PokemonEntity> testoweWyszukiwanie2() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -84,8 +84,9 @@ public class MemberRepository {
         return em.createQuery(criteria).getResultList();
     }
 
-    public Pokemon testoweWyszukiwanie3() {
-        PokemonHome pkhome= new PokemonHome();
-        return  pkhome.findById(1);
+    public List<PokemonEntity >testoweWyszukiwanie3() {
+        List<PokemonEntity> test = new ArrayList();
+        test.add(em.find(PokemonEntity.class, 1));
+        return  test;
     }
 }

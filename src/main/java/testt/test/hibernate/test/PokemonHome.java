@@ -2,6 +2,7 @@ package testt.test.hibernate.test;// default package
 // Generated 2015-11-14 22:24:57 by Hibernate Tools 4.3.1.Final
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.apache.commons.logging.Log;
@@ -17,7 +18,7 @@ public class PokemonHome {
 
 	private static final Log log = LogFactory.getLog(PokemonHome.class);
 
-	@PersistenceContext
+	@Inject
 	private EntityManager entityManager;
 
 	public void persist(Pokemon transientInstance) {
